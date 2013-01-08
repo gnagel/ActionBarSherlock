@@ -18,7 +18,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 
+import android.app.Application;
 import android.content.Context;
+import android.content.Intent;
 import android.view.View;
 
 
@@ -27,16 +29,16 @@ import com.actionbarsherlock.view.SubMenu;
 
 
 public abstract class IntentChooserActionProvider extends ActionProvider {
-	private IntentChooserView										intentChooserView	= null;
+	private IntentChooserView					intentChooserView	= null;
 
 
 	/**
 	 * Context for accessing resources.
 	 */
-	private final Context											mContext;
+	private final Context						mContext;
 
 
-	private final ArrayList<IntentChooserView.IntentChooserValue>	values				= new ArrayList<IntentChooserView.IntentChooserValue>();
+	private final ArrayList<IntentChooserValue>	values				= new ArrayList<IntentChooserValue>();
 
 
 	/**
@@ -51,6 +53,14 @@ public abstract class IntentChooserActionProvider extends ActionProvider {
 	}
 
 
+	public final int getCount() {
+		return this.values.size();
+	}
+
+
+	public abstract Intent getExpandActivityDefaultIntent();
+
+
 	public abstract int getExpandActivityOverflowButtonContentDescription();
 
 
@@ -63,6 +73,11 @@ public abstract class IntentChooserActionProvider extends ActionProvider {
 	@Override
 	public final boolean hasSubMenu() {
 		return true;
+	}
+
+
+	public final boolean isEmpty() {
+		return this.values.isEmpty();
 	}
 
 
@@ -84,6 +99,18 @@ public abstract class IntentChooserActionProvider extends ActionProvider {
 	}
 
 
+	@Override
+	public boolean onPerformDefaultAction() {
+		final Intent intent = getExpandActivityDefaultIntent();
+		if (null != intent) {
+			mContext.startActivity(intent);
+			return true;
+		}
+
+		return super.onPerformDefaultAction();
+	}
+
+
 	/**
 	 * {@inheritDoc}
 	 */
@@ -93,7 +120,16 @@ public abstract class IntentChooserActionProvider extends ActionProvider {
 	}
 
 
-	public final void setData(final List<IntentChooserView.IntentChooserValue> values) {
+	/**
+	 * Refresh the contents of the ActionBar's ActionProvider.
+	 * Example: a background task has finished downloading your <bag of data>, refresh the menu with the new options.
+	 * 
+	 * @param application
+	 */
+	public abstract void onRefresh(final Application application);
+
+
+	public final void setData(final List<IntentChooserValue> values) {
 		this.values.clear();
 		this.values.addAll(values);
 

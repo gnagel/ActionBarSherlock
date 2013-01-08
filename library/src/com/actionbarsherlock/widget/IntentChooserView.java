@@ -41,7 +41,6 @@ import android.widget.TextView;
 import com.actionbarsherlock.R;
 import com.actionbarsherlock.internal.widget.IcsLinearLayout;
 import com.actionbarsherlock.internal.widget.IcsListPopupWindow;
-import com.actionbarsherlock.widget.IntentChooserView.IntentChooserValue;
 import com.trevorpage.tpsvg.SVGView;
 
 
@@ -62,25 +61,6 @@ import com.trevorpage.tpsvg.SVGView;
 public final class IntentChooserView extends ViewGroup implements AdapterView.OnItemClickListener,
 		View.OnClickListener, PopupWindow.OnDismissListener,
 		OnGlobalLayoutListener {
-
-	public static final class IntentChooserValue {
-		public final Intent	intent;
-
-
-		public final int	raw_svg;
-
-
-		public final String	title;
-
-
-		public IntentChooserValue(final int raw_svg, final String title, final Intent intent) {
-			super();
-			this.raw_svg = raw_svg;
-			this.title = title;
-			this.intent = intent;
-		}
-	}
-
 
 	static final boolean						IS_HONEYCOMB	= Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB;
 
