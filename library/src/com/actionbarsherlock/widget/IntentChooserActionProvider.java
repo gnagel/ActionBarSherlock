@@ -72,7 +72,7 @@ public abstract class IntentChooserActionProvider extends ActionProvider {
 	 */
 	@Override
 	public final boolean hasSubMenu() {
-		return true;
+		return false; // Always return false & execute onPerformDefaultAction() instead
 	}
 
 
@@ -116,6 +116,7 @@ public abstract class IntentChooserActionProvider extends ActionProvider {
 	 */
 	@Override
 	public final void onPrepareSubMenu(final SubMenu subMenu) {
+		// Disabled when hasSubMenu() == false
 		throw new IllegalStateException();
 	}
 
