@@ -101,7 +101,27 @@ public abstract class IntentChooserFactory<T extends Parcelable> {
 	}
 
 
-	public IntentChooserValue createIntentChooser(final Application application, final T... params) {
+	public IntentChooserValue createIntentChooserBlack(final Application application, final T... params) {
+		final Intent intent = toIntent(application, params);
+		if (null == intent) {
+			throw new IllegalStateException("Null intent from toIntent!");
+		}
+
+		final int svg_raw = toSvgBlack(application);
+		if (0 == svg_raw) {
+			throw new IllegalStateException("0 svg_raw from toSvgWhite!");
+		}
+
+		final String title = toTitle(application, params);
+		if (null == title) {
+			throw new IllegalStateException("Null title from toTitle!");
+		}
+
+		return new IntentChooserValue(svg_raw, title, intent);
+	}
+
+
+	public IntentChooserValue createIntentChooserWhite(final Application application, final T... params) {
 		final Intent intent = toIntent(application, params);
 		if (null == intent) {
 			throw new IllegalStateException("Null intent from toIntent!");
@@ -122,6 +142,11 @@ public abstract class IntentChooserFactory<T extends Parcelable> {
 
 
 	public abstract Intent toIntent(Application application, T... params);
+
+
+	public String toSubtext(final Application application, final T... params) {
+		return null;
+	}
 
 
 	public abstract int toSvgBlack(Application application);
