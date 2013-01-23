@@ -20,7 +20,7 @@ import com.trevorpage.tpsvg.SVGView;
 
 public abstract class IntentChooserArrayAdapter extends ArrayAdapter<IntentChooserValue> implements OnNavigationListener {
 
-	static final boolean	IS_HONECOMB	= android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.HONEYCOMB;
+	public static final boolean	IS_HONECOMB	= android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.HONEYCOMB;
 
 
 	public IntentChooserArrayAdapter(final Context context) {

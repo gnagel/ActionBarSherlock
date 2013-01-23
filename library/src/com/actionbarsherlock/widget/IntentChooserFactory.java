@@ -144,9 +144,7 @@ public abstract class IntentChooserFactory<T extends Parcelable> {
 	public abstract Intent toIntent(Application application, T... params);
 
 
-	public String toSubtext(final Application application, final T... params) {
-		return null;
-	}
+	public abstract String toSubtext(final Application application, final T... params);
 
 
 	public abstract int toSvgBlack(Application application);
