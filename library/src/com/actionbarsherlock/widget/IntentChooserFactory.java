@@ -7,7 +7,7 @@ import android.os.Parcel;
 import android.os.Parcelable;
 
 
-public abstract class IntentChooserFactory<T extends Parcelable> {
+public abstract class IntentChooserFactory<T extends Parcelable> implements IntentChooserFactoryToSVGs, IntentChooserFactoryToStrings {
 
 	public static class BooleanParcelable implements Parcelable {
 		public static final BooleanParcelableCreator	CREATOR	= new BooleanParcelableCreator();
@@ -109,10 +109,30 @@ public abstract class IntentChooserFactory<T extends Parcelable> {
 
 		final int svg_raw = toSvgBlack(application);
 		if (0 == svg_raw) {
-			throw new IllegalStateException("0 svg_raw from toSvgWhite!");
+			throw new IllegalStateException("0 svg_raw from toSvgBlack!");
 		}
 
-		final String title = toTitle(application, params);
+		final String title = toTitle(application);
+		if (null == title) {
+			throw new IllegalStateException("Null title from toTitle!");
+		}
+
+		return new IntentChooserValue(svg_raw, title, intent);
+	}
+
+
+	public IntentChooserValue createIntentChooserProduct(final Application application, final T... params) {
+		final Intent intent = toIntent(application, params);
+		if (null == intent) {
+			throw new IllegalStateException("Null intent from toIntent!");
+		}
+
+		final int svg_raw = toSvgProduct(application);
+		if (0 == svg_raw) {
+			throw new IllegalStateException("0 svg_raw from toSvgProduct!");
+		}
+
+		final String title = toTitle(application);
 		if (null == title) {
 			throw new IllegalStateException("Null title from toTitle!");
 		}
@@ -132,7 +152,7 @@ public abstract class IntentChooserFactory<T extends Parcelable> {
 			throw new IllegalStateException("0 svg_raw from toSvgWhite!");
 		}
 
-		final String title = toTitle(application, params);
+		final String title = toTitle(application);
 		if (null == title) {
 			throw new IllegalStateException("Null title from toTitle!");
 		}
@@ -144,14 +164,22 @@ public abstract class IntentChooserFactory<T extends Parcelable> {
 	public abstract Intent toIntent(Application application, T... params);
 
 
-	public abstract String toSubtext(final Application application, final T... params);
+	@Override
+	public abstract String toSubtext(Application application);
 
 
+	@Override
 	public abstract int toSvgBlack(Application application);
 
 
+	@Override
+	public abstract int toSvgProduct(Application application);
+
+
+	@Override
 	public abstract int toSvgWhite(Application application);
 
 
-	public abstract String toTitle(Application application, T... params);
+	@Override
+	public abstract String toTitle(Application application);
 }

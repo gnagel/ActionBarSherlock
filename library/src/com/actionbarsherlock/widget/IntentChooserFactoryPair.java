@@ -6,7 +6,7 @@ import android.content.Intent;
 import android.os.Parcelable;
 
 
-public abstract class IntentChooserFactoryPair<K extends Parcelable, T extends Parcelable> {
+public abstract class IntentChooserFactoryPair<K extends Parcelable, T extends Parcelable> implements IntentChooserFactoryToSVGs, IntentChooserFactoryToStrings {
 	public IntentChooserValue createIntentChooserBlack(final Application application, final K key, final T value) {
 		final Intent intent = toIntent(application, key, value);
 		if (null == intent) {
@@ -18,7 +18,7 @@ public abstract class IntentChooserFactoryPair<K extends Parcelable, T extends P
 			throw new IllegalStateException("0 svg_raw from toSvgWhite!");
 		}
 
-		final String title = toTitle(application, key, value);
+		final String title = toTitle(application);
 		if (null == title) {
 			throw new IllegalStateException("Null title from toTitle!");
 		}
@@ -38,7 +38,7 @@ public abstract class IntentChooserFactoryPair<K extends Parcelable, T extends P
 			throw new IllegalStateException("0 svg_raw from toSvgWhite!");
 		}
 
-		final String title = toTitle(application, key, value);
+		final String title = toTitle(application);
 		if (null == title) {
 			throw new IllegalStateException("Null title from toTitle!");
 		}
@@ -50,14 +50,22 @@ public abstract class IntentChooserFactoryPair<K extends Parcelable, T extends P
 	public abstract Intent toIntent(Application application, K key, T value);
 
 
-	public abstract String toSubtext(final Application application, final K key, final T value);
+	@Override
+	public abstract String toSubtext(Application application);
 
 
+	@Override
 	public abstract int toSvgBlack(Application application);
 
 
+	@Override
+	public abstract int toSvgProduct(Application application);
+
+
+	@Override
 	public abstract int toSvgWhite(Application application);
 
 
-	public abstract String toTitle(Application application, K key, T value);
+	@Override
+	public abstract String toTitle(Application application);
 }
