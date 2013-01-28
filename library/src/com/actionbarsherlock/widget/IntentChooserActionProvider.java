@@ -99,6 +99,10 @@ public abstract class IntentChooserActionProvider extends ActionProvider {
 	}
 
 
+	public void onDestroy(final Application application) {
+	}
+
+
 	@Override
 	public boolean onPerformDefaultAction() {
 		final Intent intent = getExpandActivityDefaultIntent();
