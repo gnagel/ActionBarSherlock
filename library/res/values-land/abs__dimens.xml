@@ -18,9 +18,11 @@
 */
 -->
 <resources>
+
     <!-- Default height of an action bar. -->
     <dimen name="abs__action_bar_default_height">40dip</dimen>
-    <dimen name="abs__action_bar_chooser_svgview_default_height">28dip</dimen>
+    <dimen name="dropdownListPreferredItemHeight">40dip</dimen>
+    <dimen name="abs__action_bar_chooser_svgview_default_height">32dip</dimen>
     <!-- Vertical padding around action bar icons. -->
     <dimen name="abs__action_bar_icon_vertical_padding">4dip</dimen>
     <!-- Text size for action bar titles -->
@@ -31,4 +33,5 @@
     <dimen name="abs__action_bar_subtitle_top_margin">-2dp</dimen>
     <!-- Bottom margin for action bar subtitles -->
     <dimen name="abs__action_bar_subtitle_bottom_margin">4dip</dimen>
+
 </resources>

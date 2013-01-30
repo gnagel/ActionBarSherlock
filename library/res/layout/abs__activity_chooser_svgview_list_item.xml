@@ -35,8 +35,8 @@
 
         <com.trevorpage.tpsvg.SVGView
             android:id="@+id/abs__icon"
-            android:layout_width="32dip"
-            android:layout_height="32dip"
+            android:layout_width="@dimen/abs__action_bar_chooser_svgview_default_height"
+            android:layout_height="@dimen/abs__action_bar_chooser_svgview_default_height"
             android:layout_gravity="center_vertical"
             android:layout_marginRight="8dip"
             android:duplicateParentState="true" />

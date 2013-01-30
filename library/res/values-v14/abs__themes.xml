@@ -9,7 +9,7 @@
         <!-- Useful for offsetting contents with an overlay action bar. -->
         <item name="actionBarSize">?android:attr/actionBarSize</item>
         <!-- Needed for our bug-fix dropdown list navigation layout. :( -->
-        <item name="dropdownListPreferredItemHeight">48dp</item>
+        <item name="dropdownListPreferredItemHeight">@dimen/dropdownListPreferredItemHeight</item>
         <!-- Needed for our ShareActionProvider and SearchView implementation. -->
         <item name="android:actionBarWidgetTheme">@style/Theme.Sherlock</item>
         <!-- For crazy people who use IcsSpinner. -->

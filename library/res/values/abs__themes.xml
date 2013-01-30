@@ -56,7 +56,7 @@
         <item name="textColorPrimaryDisableOnly">@color/abs__primary_text_disable_only_holo_dark</item>
         <item name="textColorPrimaryInverse">@color/abs__primary_text_holo_light</item>
 
-        <!-- Internal --><item name="dropdownListPreferredItemHeight">48dip</item>
+        <!-- Internal --><item name="dropdownListPreferredItemHeight">@dimen/dropdownListPreferredItemHeight</item>
         <item name="dropDownListViewStyle">@style/Widget.Sherlock.ListView.DropDown</item>
 
         <item name="textAppearanceSmall">@style/TextAppearance.Sherlock.Small</item>
@@ -124,7 +124,7 @@
         <item name="textColorPrimaryDisableOnly">@color/abs__primary_text_disable_only_holo_light</item>
         <item name="textColorPrimaryInverse">@color/abs__primary_text_holo_dark</item>
 
-        <!-- Internal --><item name="dropdownListPreferredItemHeight">48dip</item>
+        <!-- Internal --><item name="dropdownListPreferredItemHeight">@dimen/dropdownListPreferredItemHeight</item>
         <item name="dropDownListViewStyle">@style/Widget.Sherlock.Light.ListView.DropDown</item>
 
         <item name="textAppearanceSmall">@style/TextAppearance.Sherlock.Light.Small</item>
