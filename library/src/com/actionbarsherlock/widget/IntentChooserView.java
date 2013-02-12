@@ -62,7 +62,18 @@ public final class IntentChooserView extends ViewGroup implements AdapterView.On
 		View.OnClickListener, PopupWindow.OnDismissListener,
 		OnGlobalLayoutListener {
 
-	static final boolean						IS_HONEYCOMB	= Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB;
+	static final boolean	IS_HONEYCOMB	= Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB;
+
+
+	public static IcsLinearLayout createView(final Context context, final int svg_resource) {
+		final LayoutInflater inflater = LayoutInflater.from(context);
+		final IcsLinearLayout root = (IcsLinearLayout) inflater.inflate(R.layout.abs__activity_chooser_svgview, null);
+
+		final SVGView svgView = (SVGView) root.findViewById(R.id.abs__image);
+		svgView.setImageSvg(svg_resource);
+
+		return root;
+	}
 
 
 	/**
@@ -116,16 +127,16 @@ public final class IntentChooserView extends ViewGroup implements AdapterView.On
 	private IcsListPopupWindow					mListPopupWindow;
 
 
+	// /**
+	// * The ActionProvider hosting this view, if applicable.
+	// */
+	// ActionProvider mProvider;
+
 	/**
 	 * Listener for the dismissal of the popup/alert.
 	 */
 	private PopupWindow.OnDismissListener		mOnDismissListener;
 
-
-	// /**
-	// * The ActionProvider hosting this view, if applicable.
-	// */
-	// ActionProvider mProvider;
 
 	/**
 	 * Create a new instance.
