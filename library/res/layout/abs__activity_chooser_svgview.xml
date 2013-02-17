@@ -38,11 +38,11 @@
             android:layout_width="@dimen/abs__action_bar_chooser_svgview_default_height"
             android:layout_height="@dimen/abs__action_bar_chooser_svgview_default_height"
             android:layout_gravity="center"
+            android:layout_marginBottom="@dimen/abs__action_bar_chooser_svgview_padding_bottom"
+            android:layout_marginLeft="@dimen/abs__action_bar_chooser_svgview_padding_left"
+            android:layout_marginRight="@dimen/abs__action_bar_chooser_svgview_padding_right"
+            android:layout_marginTop="@dimen/abs__action_bar_chooser_svgview_padding_top"
             android:adjustViewBounds="true"
-            android:paddingBottom="2dip"
-            android:paddingLeft="12dip"
-            android:paddingRight="12dip"
-            android:paddingTop="2dip"
             android:scaleType="fitCenter" />
     </FrameLayout>
 

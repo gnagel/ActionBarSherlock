@@ -614,7 +614,7 @@ public class ActionMenuPresenter extends BaseMenuPresenter
 		}
 
 		if (!mWidthLimitSet) {
-			mWidthLimit = res.getDisplayMetrics().widthPixels / 2;
+			mWidthLimit = res.getDisplayMetrics().widthPixels * res.getInteger(R.integer.abs_config_actionMenuPresenterWidthLimitPct) / 100;
 		}
 
 		// Measure for initial configuration
