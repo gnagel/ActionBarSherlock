@@ -25,8 +25,8 @@
     <dimen name="abs__action_bar_chooser_svgview_default_height">28dip</dimen>
     <dimen name="abs__action_bar_chooser_svgview_padding_top">2dip</dimen>
     <dimen name="abs__action_bar_chooser_svgview_padding_bottom">2dip</dimen>
-    <dimen name="abs__action_bar_chooser_svgview_padding_right">12dip</dimen>
-    <dimen name="abs__action_bar_chooser_svgview_padding_left">12dip</dimen>
+    <dimen name="abs__action_bar_chooser_svgview_padding_right">2dip</dimen>
+    <dimen name="abs__action_bar_chooser_svgview_padding_left">2dip</dimen>
     <!-- <dimen name="abs__action_bar_chooser_svgview_default_height">40dip</dimen> -->
 
 
